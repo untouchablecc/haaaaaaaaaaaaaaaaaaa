@@ -1,4 +1,4 @@
---// CUSTOM DRAWING0000000000000000000000
+--// CUSTOM DRAWING
 
 local drawing = {} do
     local services = setmetatable({}, {
@@ -2802,23 +2802,7 @@ function library:Load(options)
         self.extension = extension
     end
 
-        Thickness = 6,
-        Color = Color3.fromRGB(255, 255, 255),
-        ZIndex = 1000
-    })
-
-    self.cursor = cursor
-
     services.InputService.MouseIconEnabled = true
-
-    utility.connect(services.RunService.RenderStepped, function()
-        if self.open then
-            local mousepos = services.InputService:GetMouseLocation()
-            cursor.PointA = mousepos
-            cursor.PointB = mousepos + Vector2.new(6, 12)
-            cursor.PointC = mousepos + Vector2.new(6, 12)
-        end
-    end)
 
     local holder = utility.create("Square", {
         Transparency = 0,
