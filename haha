@@ -1,3 +1,19 @@
+
+
+----------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 --// CUSTOM DRAWING
 
 local drawing = {} do
@@ -2801,6 +2817,16 @@ function library:Load(options)
     if extension then
         self.extension = extension
     end
+
+    local cursor = utility.create("Triangle", {
+        Thickness = 6,
+        Color = Color3.fromRGB(255, 255, 255),
+        ZIndex = 1000
+    })
+
+    self.cursor = cursor
+
+    services.InputService.MouseIconEnabled = true
 
     utility.connect(services.RunService.RenderStepped, function()
         if self.open then
